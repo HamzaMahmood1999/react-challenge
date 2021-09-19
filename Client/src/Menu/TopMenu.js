@@ -1,7 +1,20 @@
 import React from 'react'
 import logohere from '../Images/logohere.png'
+import { useHistory} from "react-router-dom";
+
+
 
 function TopMenu(){
+    const history = useHistory();
+
+    function sendChange(value){
+        let username = value;
+        //console.log(value)
+        history.push({
+            pathname: '/',
+            name: value || ""
+        })
+}
     return (
         <div className="top-menu is-shadow-2">
             <div className="menu-logo-container">
@@ -14,6 +27,7 @@ function TopMenu(){
                     type="search"
                     name="name"
                     autoComplete="off"
+                    onChange = {(e)=>sendChange(e.target.value)}
                 />
             </div>
         </div>

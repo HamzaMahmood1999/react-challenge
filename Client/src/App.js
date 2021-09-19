@@ -73,7 +73,7 @@ function App() {
                     <Users/>
                   </Route>
                   <Route path="/User" >
-                    <UserDetails/>
+                    <UserDetails />
                   </Route>
                 </Switch>
               </div>

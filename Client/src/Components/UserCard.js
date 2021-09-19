@@ -1,11 +1,19 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation, useHistory} from "react-router-dom";
 import Logo from '../Images/logohere.png'
 
-function UserCard({item}){
 
+function UserCard({item}){
+    const history= useHistory();
+    
+    const route = () => {
+        history.push({
+            pathname: '/User',
+            id: item.id
+        })
+    } 
     return (
-        <Link
-            to={"/User"}
+        <div
+           onClick = {route}
             className={"card-margin align-left is-row is-card"}
         >
             <div className="is-50">
@@ -16,7 +24,7 @@ function UserCard({item}){
             <div className="is-50">
                 <h3>{item.firstName} - {item.lastName}</h3>
             </div>
-        </Link>
+        </div>
     );
 }
 

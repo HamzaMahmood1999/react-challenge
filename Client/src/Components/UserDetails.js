@@ -1,6 +1,6 @@
 import React from 'react';
 import {NetworkStatus, useQuery, gql} from "@apollo/client";
-
+import {useLocation} from "react-router-dom";
 
 const USER_DETAIL = gql`
 query($id: Int!){
@@ -15,9 +15,11 @@ query($id: Int!){
 `;
 
 function UserDetails(props){
-
+    const location = useLocation()
     //Pass the id to the Query to fetch details of the related Album
-    const id = null
+    const id = location.id
+    console.log(props)
+    //console.log(id)
 
     const{data, loading, error, networkStatus} = useQuery(USER_DETAIL,{
         variables: {id},
